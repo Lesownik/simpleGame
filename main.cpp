@@ -1,5 +1,5 @@
 #include <iostream>
-#include "klasy.h"
+#include "Classes.h"
 
 
 int main()
@@ -9,13 +9,13 @@ int main()
 	Gra.menu();
 
 
-	Gra.wylosowanie = Gra.losowanie(); //losowanie liczb
+	Gra.drawVariable = Gra.draw(); //losowanie liczb
 									   ///////////////////////////////////////////////////////////////////////////////// petla gry
-	while (Gra.opcjaMenu != 2) {
+	while (Gra.menuOption != 2) {
 		std::cout << "Podaj liczbe, ktora uznajesz za wylosowana: ";
-		std::cin >> Gra.liczba;
+		std::cin >> Gra.number;
 
-		Gra.mechanika();
+		Gra.mechanics();
 	}
 
 
