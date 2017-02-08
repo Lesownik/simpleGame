@@ -67,7 +67,7 @@ void Game::drawedNumber()//menu gry
 {
 	std::cout << "Podaj od ktorej liczby losowac: ";
 	std::cin >> Game::startNumber;
-	std::cout << "Podaj ile liczb losowac: ";
+	std::cout << "Podaj do ktorej liczby losowac: ";
 	std::cin >> Game::howManyNumbers;
 	std::cout << "Losuje liczbe z zakresu od " << Game::startNumber << " do " << howManyNumbers << "." << std::endl;
 	Game::drawVariable = Game::draw();
