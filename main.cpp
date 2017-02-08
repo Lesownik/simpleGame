@@ -7,11 +7,10 @@ int main()
 	Game Gra;
 
 	Gra.menu();
-
-
-	Gra.drawVariable = Gra.draw(); //losowanie liczb
-									   ///////////////////////////////////////////////////////////////////////////////// petla gry
+	Gra.drawVariable = Gra.draw();//losowanie liczb
+///////////////////////////////////////////////////////////////////////////////// petla gry
 	while (Gra.menuOption != 2) {
+		
 		std::cout << "Podaj liczbe, ktora uznajesz za wylosowana: ";
 		std::cin >> Gra.number;
 
