@@ -2,50 +2,50 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
-#include "klasy.h"
+#include "Classes.h"
 
 
-int Game::losowanie()//funkcja losowania
+int Game::draw()//funkcja losowania
 {
 	srand(time(NULL));
-	int wylosowana_liczba = (std::rand() % liczbaKoncowa) + liczbaStartowa;
-	return wylosowana_liczba;
+	int draw = (std::rand() % endNumber) + startNumber;
+	return draw;
 }
 
-void Game::mechanika()//mechanika gry
+void Game::mechanics()//mechanika gry
 {
-	if (Game::liczbaStartowa == Game::liczbaKoncowa)
+	if (Game::startNumber == Game::endNumber)
 	{
 		std::cout << "Naprawde?" << std::endl;
-		Game::intaraktywneMenu();
+		Game::interactiveMenu();
 	}
-	else if (Game::liczbaStartowa>Game::liczbaKoncowa || Game::liczbaKoncowa<Game::liczbaStartowa)
+	else if (Game::startNumber>Game::endNumber || Game::endNumber<Game::startNumber)
 	{
-		std::cout << "Liczba startowa musi byæ mniejsza od koncowej i vice versa, bo tak 'programista'sobie zyczy. :)" << std::endl;
-		Game::intaraktywneMenu();
+		std::cout << "Liczba startowa musi byÄ‡ mniejsza od koncowej i vice versa, bo tak 'programista'sobie zyczy. :)" << std::endl;
+		Game::interactiveMenu();
 
 	}
-	else if (Game::liczbaStartowa > Game::liczba)
+	else if (Game::startNumber > Game::number)
 	{
 		std::cout << "Podana liczba wykracza poza zakres!" << std::endl;
 
 	}
-	else if (Game::liczbaKoncowa < Game::liczba)
+	else if (Game::endNumber < Game::number)
 	{
 		std::cout << "Podana liczba wykracza poza zakres!" << std::endl;
-		Game::intaraktywneMenu();
+		Game::interactiveMenu();
 	}
-	else if (wylosowanie == Game::liczba)
+	else if (drawVariable == Game::number)
 	{
 		std::cout << "Gratuluje! Udalo sie trafic!" << std::endl;
-		Game::intaraktywneMenu();
+		Game::interactiveMenu();
 
 	}
-	else if (wylosowanie < Game::liczba)
+	else if (drawVariable < Game::number)
 	{
 		std::cout << "Podana liczba jest za duza! Probuj dalej." << std::endl;
 	}
-	else if (wylosowanie > Game::liczba)
+	else if (drawVariable > Game::number)
 	{
 		std::cout << "Podana liczba jest za mala! Probuj dalej." << std::endl;
 	}
@@ -54,20 +54,20 @@ void Game::mechanika()//mechanika gry
 void Game::menu()//menu gry
 {
 	system("cls");
-	std::cout << "Ver. 0.1.2\n By Matthew Wroblewsky" << std::endl;
+	std::cout << "Ver. 0.1.3\n By Matthew Wroblewsky" << std::endl;
 	std::cout << "Witaj w grze, w ktorej zgadujesz liczbe losowa z zakresu, ktory wybierzesz." << std::endl;	//poczatek gry
 	std::cout << "Podaj liczbe startowa: ";
-	std::cin >> Game::liczbaStartowa;
+	std::cin >> Game::startNumber;
 	std::cout << "Podaj liczbe koncowa: ";
-	std::cin >> Game::liczbaKoncowa;
+	std::cin >> Game::endNumber;
 
 
 }
-void Game::intaraktywneMenu()//interaktywne minimenu
+void Game::interactiveMenu()//interaktywne minimenu
 {
 	std::cout << "Wybierz jedna z dwoch opcji:\n 1.Zagraj jeszcze raz.\n 2.Zakoncz gre." << std::endl;
-	std::cin >> Game::opcjaMenu;
-	switch (Game::opcjaMenu) {
+	std::cin >> Game::menuOption;
+	switch (Game::menuOption) {
 	case 1:
 		Game::menu();
 		break;
@@ -76,7 +76,7 @@ void Game::intaraktywneMenu()//interaktywne minimenu
 		break;
 	default:
 		std::cout << "Taka opcja nie istnieje!" << std::endl;
-		Game::intaraktywneMenu();
+		Game::interactiveMenu();
 		break;
 	}
 
