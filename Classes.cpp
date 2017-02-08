@@ -70,6 +70,7 @@ void Game::interactiveMenu()//interaktywne minimenu
 	switch (Game::menuOption) {
 	case 1:
 		Game::menu();
+		Game::drawVariable = Game::draw();
 		break;
 	case 2:
 		std::cin.get();
