@@ -19,14 +19,16 @@ void Game::mechanics()//mechanika gry
 {
 	if (Game::startNumber == Game::howManyNumbers)
 	{
-		Sleep(2000);
+		
 		std::cout << "Naprawde?" << std::endl;
+		Sleep(2000);
 		Game::interactiveMenu();
 	}
 	else if (Game::startNumber>Game::howManyNumbers || Game::howManyNumbers<Game::startNumber)
 	{
-		Sleep(2000);
+		
 		std::cout << "Liczba startowa musi być mniejsza od koncowej i vice versa, bo tak 'programista'sobie zyczy. :)" << std::endl;
+		Sleep(2000);
 		Game::interactiveMenu();
 
 	}
@@ -37,9 +39,9 @@ void Game::mechanics()//mechanika gry
 	}
 	else if (Game::howManyNumbers < Game::number)
 	{
-		Sleep(2000);
+		
 		std::cout << "Podana liczba wykracza poza zakres!" << std::endl;
-		Game::interactiveMenu();
+		
 	}
 	else if (drawVariable == Game::number)
 	{
@@ -67,6 +69,7 @@ void Game::drawedNumber()//menu gry
 	std::cin >> Game::startNumber;
 	std::cout << "Podaj ile liczb losowac: ";
 	std::cin >> Game::howManyNumbers;
+	std::cout << "Losuje liczbe z zakresu od " << Game::startNumber << " do " << howManyNumbers << "." << std::endl;
 	Game::drawVariable = Game::draw();
 	
 
